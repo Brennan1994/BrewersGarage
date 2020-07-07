@@ -4,60 +4,187 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
+using System.Windows.Automation.Peers;
+using System.Windows.Documents;
 
 namespace BrewersGarage
 {
-     class GrainBill : INotifyPropertyChanged
+    public class GrainBill : INotifyPropertyChanged
     {
-        //properties
-        public double DryGrainTemp { get; set; }
-        public double TargetTemp { get; set; }
-        public double BoilVol { get; set; }
-        public double GrainWeight { get; set; }
-        public double Ratio { get; set; }
-
         public event PropertyChangedEventHandler PropertyChanged;
-
-        //methods
-        double calcStrikeTemp()
+        private void OnPropertyChanged(string property)
         {
-            //from John Palmer's How to Brew pg 266,268
-            double r = 2.055; // This value is the average density of water across the reasonable range of mash temperatures in lb/qt
-            double s = 0.4; // This is the heat capacity of grain relative to water 
-            double strikeT = ((s / r) * (TargetTemp - DryGrainTemp)) + TargetTemp;
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(property));
+            }
+
+        }
+        //Equal Runnings or no?
+
+       
+
+        //outputs
+        private string strikeWaterVol;
+        private string strikeTemp;
+        private string spargeVol;
+
+        //inputs
+        private string grainWeight;
+        private string targetMashTemp;
+        private string grainTemp;
+
+        //inputs-outputs
+        private string boilVol;
+        private string ratio;
+
+        //Analysis Controls
+        private bool setRatio;
+        public bool SetRatio
+        {
+            get
+            {
+                return setRatio;
+            }
+            set
+            {
+                setRatio = value;
+                OnPropertyChanged("SetRatio");
+            }
+        }
+        //Output Properties
+        public string StrikeWaterVol
+        {
+            get
+            {
+                OnPropertyChanged("SpargeVol");
+                strikeWaterVol = CalcStrikeVolume().ToString();
+                return strikeWaterVol;
+
+            }
+
+        }
+        public string StrikeTemp
+        {
+            get
+            {
+                strikeTemp = CalcStrikeTemp().ToString();
+                return strikeTemp;
+
+            }
+        }
+        public string SpargeVol
+        {
+            get
+            {
+                spargeVol = CalcSpargeWaterVolume().ToString();
+                return spargeVol;
+            }
+        }
+        //Input Properties
+        public string GrainWeight
+        {
+            get { return grainWeight; }
+            set
+            {
+                bool res = float.TryParse(value, out _);
+                if (res) grainWeight = value;
+                RetainedVol = CalcRetainedWater().ToString();
+                OnPropertyChanged("RetainedVol");
+                OnPropertyChanged("GrainWeight");
+                OnPropertyChanged("StrikeWaterVol");
+                OnPropertyChanged("SpargeVol");
+                OnPropertyChanged("Ratio");
+            }
+        }
+
+        public string TargetMashTemp
+        {
+            get { return targetMashTemp; }
+            set
+            {
+                bool res = float.TryParse(value, out _);
+                if (res) targetMashTemp = value;
+                OnPropertyChanged("TargetMashTemp");
+                OnPropertyChanged("StrikeTemp");
+            }
+        }
+        public string GrainTemp
+        {
+            get { return grainTemp; }
+            set
+            {
+                bool res = float.TryParse(value, out _);
+                if (res) grainTemp = value;
+                OnPropertyChanged("GrainTemp");
+                OnPropertyChanged("StrikeTemp");
+            }
+        }
+        public string Ratio
+        {
+            get { return ratio; }
+            set
+            {
+                if (!setRatio)
+                {
+                    bool res = float.TryParse(value, out _);
+                    if (res) ratio = value;
+                    OnPropertyChanged("Ratio");
+                    OnPropertyChanged("StrikeWaterVol");
+                    OnPropertyChanged("StrikeTemp");
+                }
+                else
+                {
+                    ratio = GetRatioForBatchSparge().ToString();
+                }
+            }
+        }
+
+        public string RetainedVol { get; private set; }
+        public string BoilVol
+        {
+            get { return boilVol; }
+            set
+            {
+                bool res = float.TryParse(value, out _);
+                if (res) boilVol = value;
+                OnPropertyChanged("BoilVol");
+                OnPropertyChanged("SpargeVol");
+                OnPropertyChanged("Ratio");
+            }
+        }
+        public float CalcStrikeTemp()
+        {
+            //from John Palmer's How to Brew III edition pg 266,268
+            float roe = 2.055F; // This value is the average density of water across the reasonable range of mash temperatures in lb/qt
+            float s = 0.4F; // This is the heat capacity of grain relative to water 
+            float R = (float.Parse(ratio) * roe); //weight per weight ratio water per grist
+
+            float strikeT = ((s / R) * (float.Parse(targetMashTemp) - float.Parse(grainTemp))) + float.Parse(targetMashTemp);
             return strikeT;
         }
-
-        double calcRetainedWater()
+        float CalcRetainedWater()
         {
-            double r = 0.5; // This is the wet retention factor for grist in quarts per pound.
-            double retainedVol = r * GrainWeight;
+            float r = 0.5F; // This is the wet retention factor for grist in quarts per pound.
+            float retainedVol = r * float.Parse(grainWeight) / 4;
             return retainedVol;
         }
-
-        double calcStrikeVolume()
+        float CalcStrikeVolume()
         {
-            double vol = GrainWeight * Ratio;
+            float vol = (float.Parse(grainWeight) * float.Parse(ratio)) / 4;
             return vol;
         }
-
-        double calcRatioForBatchSparge(double retainedVol)
-        {
-            Ratio = ((BoilVol * 4 / 2) + retainedVol) / GrainWeight;
-            return Ratio;
-        }
-
-        double calcSpargeWaterVolume(double strikeVolume, double retainedVol)
+        float CalcSpargeWaterVolume()
         {
             // This method does not use .5 * boil volume just in case the user opts out of the equal runnings goal.
-            double spargeVol = BoilVol - (strikeVolume - retainedVol) / 4;
+            float spargeVol = float.Parse(boilVol) - (float.Parse(strikeWaterVol) - float.Parse(RetainedVol));
             return spargeVol;
         }
-
-        double calcAdjustedHopWeights(double recipeOz, double recipeAcid, double myAcid)
+        float GetRatioForBatchSparge()
         {
-            double myOz = recipeOz * recipeAcid / myAcid;
-            return myOz;
+            float ratio = ((float.Parse(boilVol) * 4 / 2) + float.Parse(RetainedVol)) / float.Parse(grainWeight);
+            return ratio;
         }
     }
 }
+

@@ -13,32 +13,34 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
         <!--INPUT COLUMN-->
-        <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="0" Margin="20">
+        <StackPanel Orientation="Vertical" Grid.Row="3" Grid.Column="0" Margin="20" Grid.RowSpan="1">
             <TextBlock FontSize="16" Text="Inputs" />
+            <CheckBox IsChecked="{Binding Path = SetRatio, Mode=TwoWay}" Grid.Column="0" Grid.Row="0" Content="Set Water to Grist Ratio" Margin="5"/>
             <TextBlock  Text="Grain Weight (lbs)"/>
-            <TextBox Name="grainWeightIn" Text="{Binding Path = GrainWeight, Mode=TwoWay}"/>
+            <TextBox Text="{Binding Path = GrainWeight, Mode=TwoWay}"/>
             <TextBlock Text="Grain Temp (Degrees F)"/>
-            <TextBox Name="grainTempIn" Text="{Binding Path = DryGrainTemp, Mode=TwoWay}" />
+            <TextBox Text="{Binding Path = GrainTemp, Mode=TwoWay}" />
             <TextBlock Text="Target Temp (Degrees F)"/>
-            <TextBox Name="targetTempIn" Text="{Binding Path = TargetTemp, Mode=TwoWay}" />
+            <TextBox Text="{Binding Path = TargetMashTemp, Mode=TwoWay}" />
             <TextBlock Text="Boil Volume (gallons)"/>
-            <TextBox Name="boilVolIn" Text="{Binding Path = BoilVol, Mode=TwoWay}" />
+            <TextBox Text="{Binding Path = BoilVol, Mode=TwoWay}" />
             <TextBlock Text="Water to Grist Ratio (quarts/lb)"/>
-            <TextBox Name="wgRatioIn" Text="{Binding Path = Ratio, Mode=TwoWay}"/>
+            <TextBox Text="{Binding Path = Ratio, Mode=TwoWay}" IsEnabled="{Binding Path = SetRatio, Mode=TwoWay}"/>
         </StackPanel>
-        
+
         <!--OUTPUT COLUMN-->
-        <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1" Margin="20" >
+        <StackPanel Orientation="Vertical" Grid.Row="3" Grid.Column="2" Margin="20" >
             <TextBlock  FontSize="16" Text="Outputs" />
             <TextBlock  Text="Strike Water Volume (gal)" />
-            <TextBox Name="strikeVolOut"  IsEnabled="False" Text="{Binding Path = Ratio, Mode=TwoWay}" />
+            <TextBox  IsEnabled="False" Text="{Binding Path = StrikeWaterVol, Mode=OneWay}" />
             <TextBlock  FontSize="12" Text="Strike Water Temp (degrees F)" />
-            <TextBox Name="strikeTempOut"  IsEnabled="False" Text="{Binding Path = Ratio, Mode=TwoWay}" />
+            <TextBox  IsEnabled="False" Text="{Binding Path = StrikeTemp, Mode=OneWay}" />
             <TextBlock  Text="Sparge Water Volume (gal)"/>
-            <TextBox Name="SpargeVolOut"  IsEnabled="False" Text="{Binding Path = Ratio, Mode=TwoWay}" />
+            <TextBox   IsEnabled="False" Text="{Binding Path = SpargeVol, Mode=OneWay}" />
         </StackPanel>
     </Grid>
 </Window>  
