@@ -57,7 +57,6 @@ namespace BrewersGarage
         {
             get
             {
-                OnPropertyChanged("SpargeVol");
                 strikeWaterVol = CalcStrikeVolume().ToString();
                 return strikeWaterVol;
 
@@ -122,23 +121,28 @@ namespace BrewersGarage
         }
         public string Ratio
         {
-            get { return ratio; }
-            set
+            get
             {
                 if (!setRatio)
                 {
+                    ratio = CalcRatioForBatchSparge().ToString();
+                    return ratio;
+                }
+                else
+                {
+                    return ratio;
+                }
+            }
+            set
+            {
                     bool res = float.TryParse(value, out _);
                     if (res) ratio = value;
                     OnPropertyChanged("Ratio");
                     OnPropertyChanged("StrikeWaterVol");
                     OnPropertyChanged("StrikeTemp");
-                }
-                else
-                {
-                    ratio = GetRatioForBatchSparge().ToString();
-                }
             }
         }
+
 
         public string RetainedVol { get; private set; }
         public string BoilVol
@@ -180,7 +184,7 @@ namespace BrewersGarage
             float spargeVol = float.Parse(boilVol) - (float.Parse(strikeWaterVol) - float.Parse(RetainedVol));
             return spargeVol;
         }
-        float GetRatioForBatchSparge()
+        float CalcRatioForBatchSparge()
         {
             float ratio = ((float.Parse(boilVol) * 4 / 2) + float.Parse(RetainedVol)) / float.Parse(grainWeight);
             return ratio;
