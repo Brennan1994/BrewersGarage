@@ -35,9 +35,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="BrewersGarageConsole">
-      <HintPath>..\..\..\..\..\Users\Brenn\source\repos\BrewersGarageConsole\BrewersGarageConsole\bin\Debug\BrewersGarageConsole.exe</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
