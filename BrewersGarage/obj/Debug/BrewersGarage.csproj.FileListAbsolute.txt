@@ -1,0 +1,15 @@
+C:\Programs\Git\repos\BrewersGarage\BrewersGarage\bin\Debug\BrewersGarage.exe.config
+C:\Programs\Git\repos\BrewersGarage\BrewersGarage\bin\Debug\BrewersGarage.exe
+C:\Programs\Git\repos\BrewersGarage\BrewersGarage\bin\Debug\BrewersGarage.pdb
+C:\Programs\Git\repos\BrewersGarage\BrewersGarage\obj\Debug\BrewersGarage.csprojAssemblyReference.cache
+C:\Programs\Git\repos\BrewersGarage\BrewersGarage\obj\Debug\MainWindow.g.cs
+C:\Programs\Git\repos\BrewersGarage\BrewersGarage\obj\Debug\App.g.cs
+C:\Programs\Git\repos\BrewersGarage\BrewersGarage\obj\Debug\BrewersGarage_MarkupCompile.cache
+C:\Programs\Git\repos\BrewersGarage\BrewersGarage\obj\Debug\BrewersGarage_MarkupCompile.lref
+C:\Programs\Git\repos\BrewersGarage\BrewersGarage\obj\Debug\MainWindow.baml
+C:\Programs\Git\repos\BrewersGarage\BrewersGarage\obj\Debug\BrewersGarage.g.resources
+C:\Programs\Git\repos\BrewersGarage\BrewersGarage\obj\Debug\BrewersGarage.Properties.Resources.resources
+C:\Programs\Git\repos\BrewersGarage\BrewersGarage\obj\Debug\BrewersGarage.csproj.GenerateResource.cache
+C:\Programs\Git\repos\BrewersGarage\BrewersGarage\obj\Debug\BrewersGarage.csproj.CoreCompileInputs.cache
+C:\Programs\Git\repos\BrewersGarage\BrewersGarage\obj\Debug\BrewersGarage.exe
+C:\Programs\Git\repos\BrewersGarage\BrewersGarage\obj\Debug\BrewersGarage.pdb
