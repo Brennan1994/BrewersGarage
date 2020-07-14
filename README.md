@@ -1,2 +1,2 @@
 # BrewersGarage
-Beer Calculations App
+A simple beer calculator for brewers. 
