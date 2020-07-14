@@ -17,22 +17,6 @@ namespace BrewersGarage
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
 
         }
-        //Equal Runnings or no?
-       
-
-        //outputs
-        private string strikeWaterVol;
-        private string strikeTemp;
-        private string spargeVol;
-
-        //inputs
-        private string grainWeight;
-        private string targetMashTemp;
-        private string grainTemp;
-
-        //inputs-outputs
-        private string boilVol;
-        private string ratio;
 
         //Analysis Controls
         private bool setRatio;
@@ -49,6 +33,7 @@ namespace BrewersGarage
             }
         }
         //Output Properties
+        private string strikeWaterVol;
         public string StrikeWaterVol
         {
             get
@@ -59,6 +44,7 @@ namespace BrewersGarage
             }
 
         }
+        private string strikeTemp;
         public string StrikeTemp
         {
             get
@@ -68,6 +54,7 @@ namespace BrewersGarage
 
             }
         }
+        private string spargeVol;
         public string SpargeVol
         {
             get
@@ -77,6 +64,7 @@ namespace BrewersGarage
             }
         }
         //Input Properties
+        private string grainWeight;
         public string GrainWeight
         {
             get { return grainWeight; }
@@ -92,7 +80,7 @@ namespace BrewersGarage
                 OnPropertyChanged("Ratio");
             }
         }
-
+        private string targetMashTemp;
         public string TargetMashTemp
         {
             get { return targetMashTemp; }
@@ -104,6 +92,7 @@ namespace BrewersGarage
                 OnPropertyChanged("StrikeTemp");
             }
         }
+        private string grainTemp;
         public string GrainTemp
         {
             get { return grainTemp; }
@@ -115,6 +104,7 @@ namespace BrewersGarage
                 OnPropertyChanged("StrikeTemp");
             }
         }
+        private string ratio;
         public string Ratio
         {
             get
@@ -141,6 +131,8 @@ namespace BrewersGarage
 
 
         public string RetainedVol { get; private set; }
+
+        private string boilVol;
         public string BoilVol
         {
             get { return boilVol; }

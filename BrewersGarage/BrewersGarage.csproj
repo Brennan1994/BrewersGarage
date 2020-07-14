@@ -7,8 +7,9 @@
     <AssemblyTitle>BrewersGarage</AssemblyTitle>
     <Product>BrewersGarage</Product>
     <Copyright>Copyright ©  2019</Copyright>
-    <OutputPath>bin\$(Configuration)\</OutputPath>
-    <UseWPF>true</UseWPF>
+    <OutputDir>bin\$(Configuration)\</OutputDir>
+	  <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+	  <UseWPF>true</UseWPF>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugType>full</DebugType>

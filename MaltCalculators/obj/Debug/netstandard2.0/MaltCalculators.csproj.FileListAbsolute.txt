@@ -1,3 +1,0 @@
-C:\Users\Brenn\source\repos\BrewersGarage\MaltCalculators\obj\Debug\netstandard2.0\MaltCalculators.csprojAssemblyReference.cache
-C:\Users\Brenn\source\repos\BrewersGarage\MaltCalculators\obj\Debug\netstandard2.0\MaltCalculators.AssemblyInfoInputs.cache
-C:\Users\Brenn\source\repos\BrewersGarage\MaltCalculators\obj\Debug\netstandard2.0\MaltCalculators.AssemblyInfo.cs
