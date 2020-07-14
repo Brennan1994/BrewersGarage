@@ -84,7 +84,6 @@ C:\Programs\Git\repos\BrewersGarage\UnitTests\bin\Debug\netcoreapp3.1\zh-Hans\Mi
 C:\Programs\Git\repos\BrewersGarage\UnitTests\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.TestPlatform.CommunicationUtilities.resources.dll
 C:\Programs\Git\repos\BrewersGarage\UnitTests\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
 C:\Programs\Git\repos\BrewersGarage\UnitTests\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
-C:\Programs\Git\repos\BrewersGarage\UnitTests\obj\Debug\netcoreapp3.1\UnitTests.csprojAssemblyReference.cache
 C:\Programs\Git\repos\BrewersGarage\UnitTests\obj\Debug\netcoreapp3.1\UnitTests.AssemblyInfoInputs.cache
 C:\Programs\Git\repos\BrewersGarage\UnitTests\obj\Debug\netcoreapp3.1\UnitTests.AssemblyInfo.cs
 C:\Programs\Git\repos\BrewersGarage\UnitTests\obj\Debug\netcoreapp3.1\UnitTests.csproj.CoreCompileInputs.cache
