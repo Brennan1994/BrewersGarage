@@ -5,7 +5,12 @@ VisualStudioVersion = 16.0.29409.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrewersGarage", "BrewersGarage\BrewersGarage.csproj", "{62E8A061-8490-42BF-971B-7CD76ED5F65D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{34888CB5-ED3A-4285-A5E1-0CD2611EFC81}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTests", "UnitTests\UnitTests.csproj", "{34888CB5-ED3A-4285-A5E1-0CD2611EFC81}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BFD35A08-27AA-45E9-9816-1B96C578F65D}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\dotnet-core-desktop.yml = .github\workflows\dotnet-core-desktop.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
