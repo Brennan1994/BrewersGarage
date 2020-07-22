@@ -52,9 +52,6 @@ namespace BrewersGarage.Model
             }
         }
 
-
-        public float RetainedVol { get; private set; }
-
         private float _boilVol=0;
         public float BoilVol
         {

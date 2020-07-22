@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BrewersGarage.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,12 +23,17 @@ namespace BrewersGarage
     public partial class MainWindow : Window
     {
         public GrainBill GrainBillObj { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
             GrainBillObj = new GrainBill{ Ratio = "0", GrainWeight = "0", BoilVol = "0", GrainTemp = "0", TargetMashTemp = "0"};
             this.DataContext = GrainBillObj;
+            Compute.compute(new GrainInputs());
+            
+
 
         }
     }
+
 }
