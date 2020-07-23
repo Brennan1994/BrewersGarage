@@ -1,5 +1,4 @@
-﻿using BrewersGarage.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,23 +16,13 @@ using System.Windows.Shapes;
 namespace BrewersGarage
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for UserControl1.xaml
     /// </summary>
-
-    public partial class MainWindow : Window
+    public partial class UserControl1 : UserControl
     {
-        public GrainBill GrainBillObj { get; set; }
-
-        public MainWindow()
+        public UserControl1()
         {
             InitializeComponent();
-            GrainBillObj = new GrainBill{ Ratio = "0", GrainWeight = "0", BoilVol = "0", GrainTemp = "0", TargetMashTemp = "0"};
-            this.DataContext = GrainBillObj;
-            Compute.compute(new GrainInputs());
-            
-
-
         }
     }
-
 }
