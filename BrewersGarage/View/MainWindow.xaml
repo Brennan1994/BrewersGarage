@@ -19,7 +19,6 @@
         <!--INPUT COLUMN-->
         <StackPanel Orientation="Vertical" Grid.Row="3" Grid.Column="0" Margin="20" Grid.RowSpan="1">
             <TextBlock FontSize="16" Text="Inputs" />
-            <CheckBox IsChecked="{Binding Path = SetRatio, Mode=TwoWay}" Grid.Column="0" Grid.Row="0" Content="Set Water to Grist Ratio" Margin="5"/>
             <TextBlock  Text="Grain Weight (lbs)"/>
             <TextBox Text="{Binding Path = GrainWeight, Mode=TwoWay}"/>
             <TextBlock Text="Grain Temp (Degrees F)"/>
@@ -29,7 +28,7 @@
             <TextBlock Text="Boil Volume (gallons)"/>
             <TextBox Text="{Binding Path = BoilVol, Mode=TwoWay}" />
             <TextBlock Text="Water to Grist Ratio (quarts/lb)"/>
-            <TextBox Text="{Binding Path = Ratio, Mode=TwoWay}" IsEnabled="{Binding Path = SetRatio, Mode=TwoWay}"/>
+            <TextBox Text="{Binding Path = Ratio, Mode=TwoWay}"/>
         </StackPanel>
 
         <!--OUTPUT COLUMN-->

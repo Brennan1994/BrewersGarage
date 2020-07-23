@@ -44,7 +44,11 @@ namespace BrewersGarage.Model
             float spargeVol = grainInputs.BoilVol - CalcStrikeVolume(grainInputs) - CalcRetainedWater(grainInputs);
             return spargeVol;
         }
+        float CalcRatioForBatchSparge(GrainInputs grainInputs)
+        {
+            float ratio = ((grainInputs.BoilVol * 4 / 2) + CalcRetainedWater(grainInputs)) / grainInputs.GrainWeight;
+            return ratio;
+        }
     }
-
 }
 ///

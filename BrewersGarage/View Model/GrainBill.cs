@@ -11,59 +11,23 @@ namespace BrewersGarage
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged(string property)
         {
-
             _grainOutputs = Model.Compute.compute(_grainInputs);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
         }
 
-        //Analysis Controls
-        private bool setRatio;
-        public bool SetRatio
-        {
-            get
-            {
-                return setRatio;
-            }
-            set
-            {
-                setRatio = value;
-                OnPropertyChanged(nameof(SetRatio));
-            }
-        }
         //Output Properties
-        private float strikeWaterVol;
         public float StrikeWaterVol
         {
-            get
-            {
-                strikeWaterVol = _grainOutputs.StrikeVol;
-                return strikeWaterVol;
-
-            }
-
+            get{return _grainOutputs.StrikeVol;}
         }
-        private float strikeTemp;
         public float StrikeTemp
         {
-            get
-            {
-                strikeTemp = _grainOutputs.StrikeTemp;
-                return strikeTemp;
-
-            }
+            get{return _grainOutputs.StrikeTemp;}
         }
-        private float spargeVol;
         public float SpargeVol
         {
-            get
-            {
-                spargeVol = _grainOutputs.SpargeVol;
-                return spargeVol;
-            }
+            get { return _grainOutputs.SpargeVol; }
         }
-
-
-
 
         //Input Properties
         public float GrainWeight
@@ -72,21 +36,20 @@ namespace BrewersGarage
             set
             {
                 _grainInputs.GrainWeight = value;
-                OnPropertyChanged("GrainWeight");
-
+                OnPropertyChanged(nameof(SpargeVol));
+                OnPropertyChanged(nameof(StrikeWaterVol));
+                OnPropertyChanged(nameof(StrikeTemp));
             }
         }
         public float TargetMashTemp
         {
-            get
-            {
-                return _grainInputs.TargetMashTemp;
-            }
+            get{return _grainInputs.TargetMashTemp;}
             set
             {
                 _grainInputs.TargetMashTemp = value;
-                OnPropertyChanged("TargetMashTemp");
-
+                OnPropertyChanged(nameof(SpargeVol));
+                OnPropertyChanged(nameof(StrikeWaterVol));
+                OnPropertyChanged(nameof(StrikeTemp));
             }
         }
         public float GrainTemp
@@ -95,40 +58,31 @@ namespace BrewersGarage
             set
             {
                 _grainInputs.GrainTemp = value;
-                OnPropertyChanged("GrainTemp");
-
+                OnPropertyChanged(nameof(SpargeVol));
+                OnPropertyChanged(nameof(StrikeWaterVol));
+                OnPropertyChanged(nameof(StrikeTemp));
             }
         }
-        //public float Ratio
-        //{
-        //    get
-        //    {
-        //        if (!setRatio)
-        //        {
-        //            ratio = CalcRatioForBatchSparge().ToString();
-        //            return ratio;
-        //        }
-        //        else
-        //        {
-        //            return ratio;
-        //        }
-        //    }
-        //    set
-        //    {
-        //            bool res = float.TryParse(value, out _);
-        //            if (res) ratio = value;
-        //            OnPropertyChanged("Ratio");
-        //            OnPropertyChanged("StrikeWaterVol");
-        //            OnPropertyChanged("StrikeTemp");
-        //    }
-        //}
+        public float Ratio
+        {
+            get { return _grainInputs.Ratio; }
+            set
+            {
+                _grainInputs.Ratio = value;
+                OnPropertyChanged(nameof(SpargeVol));
+                OnPropertyChanged(nameof(StrikeWaterVol));
+                OnPropertyChanged(nameof(StrikeTemp));
+            }
+        }
         public float BoilVol
         {
             get { return _grainInputs.BoilVol; }
             set
             {
                 _grainInputs.BoilVol = value;
-                OnPropertyChanged("BoilVol");
+                OnPropertyChanged(nameof(SpargeVol));
+                OnPropertyChanged(nameof(StrikeWaterVol));
+                OnPropertyChanged(nameof(StrikeTemp));
             }
         }
     }
@@ -138,11 +92,7 @@ namespace BrewersGarage
 
 
 
-//        float CalcRatioForBatchSparge()
-//        {
-//            float ratio = ((float.Parse(boilVol) * 4 / 2) + float.Parse(RetainedVol)) / float.Parse(grainWeight);
-//            return ratio;
-//        }
-//    }
+
+
 
 

@@ -91,3 +91,4 @@ C:\Programs\Git\repos\BrewersGarage\UnitTests\obj\Debug\netcoreapp3.1\UnitTests.
 C:\Programs\Git\repos\BrewersGarage\UnitTests\obj\Debug\netcoreapp3.1\UnitTests.dll
 C:\Programs\Git\repos\BrewersGarage\UnitTests\obj\Debug\netcoreapp3.1\UnitTests.pdb
 C:\Programs\Git\repos\BrewersGarage\UnitTests\obj\Debug\netcoreapp3.1\UnitTests.genruntimeconfig.cache
+C:\Programs\Git\repos\BrewersGarage\UnitTests\obj\Debug\netcoreapp3.1\UnitTests.csprojAssemblyReference.cache
