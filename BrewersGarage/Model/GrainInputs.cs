@@ -10,56 +10,34 @@ namespace BrewersGarage.Model
     {
         //Input Properties
         private float _grainWeight=0;
+        private float _targetMashTemp = 0;
+        private float _grainTemp = 0;
+        private float _ratio = 0;
+        private float _boilVol = 0;
         public float GrainWeight
         {
             get { return _grainWeight; }
-            set
-            {
-                _grainWeight = value;
-            }
+            set {_grainWeight = value;}
         }
-        private float _targetMashTemp=0;
         public float TargetMashTemp
         {
             get { return _targetMashTemp; }
-            set
-            {
-                _targetMashTemp = value;
-            }
+            set {_targetMashTemp = value; }
         }
-        private float _grainTemp=0;
         public float GrainTemp
         {
             get { return _grainTemp; }
-            set
-            {
-                _grainTemp = value;
-            }
+            set {_grainTemp = value; }
         }
-        private float _ratio=0;
         public float Ratio
         {
-            get
-            {
-                {
-                    return _ratio;
-                }
-            }
-            set
-            {
-                _ratio = value;
-
-            }
+            get{ return _ratio;}
+            set{_ratio = value;}
         }
-
-        private float _boilVol=0;
         public float BoilVol
         {
             get { return _boilVol; }
-            set
-            {
-                _boilVol = value;
-            }
+            set { _boilVol = value; }
         }
     }
 }
