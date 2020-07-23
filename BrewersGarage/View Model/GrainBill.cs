@@ -1,5 +1,7 @@
 ﻿
+using System;
 using System.ComponentModel;
+using System.Linq;
 
 namespace BrewersGarage
 {
@@ -11,11 +13,17 @@ namespace BrewersGarage
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged(string property)
         {
-            _grainOutputs = Model.Compute.compute(_grainInputs);
+            // if the property being changed is not an output (so it's an input), recalculate. Otherwise just update because the model already computed when the input changed
+            if (!outputProperties.Contains(property)) 
+            {
+                _grainOutputs = Model.Compute.compute(_grainInputs);
+            }
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
         }
 
         //Output Properties
+        // an array of the output properties to reference when deciding if a compute is necessary 
+        private string[] outputProperties = { nameof(StrikeWaterVol), nameof(StrikeTemp), nameof(SpargeVol) };
         public float StrikeWaterVol
         {
             get{return _grainOutputs.StrikeVol;}
@@ -36,6 +44,7 @@ namespace BrewersGarage
             set
             {
                 _grainInputs.GrainWeight = value;
+                OnPropertyChanged(nameof(GrainWeight));
                 OnPropertyChanged(nameof(SpargeVol));
                 OnPropertyChanged(nameof(StrikeWaterVol));
                 OnPropertyChanged(nameof(StrikeTemp));
@@ -47,6 +56,7 @@ namespace BrewersGarage
             set
             {
                 _grainInputs.TargetMashTemp = value;
+                OnPropertyChanged(nameof(TargetMashTemp));
                 OnPropertyChanged(nameof(SpargeVol));
                 OnPropertyChanged(nameof(StrikeWaterVol));
                 OnPropertyChanged(nameof(StrikeTemp));
@@ -58,6 +68,7 @@ namespace BrewersGarage
             set
             {
                 _grainInputs.GrainTemp = value;
+                OnPropertyChanged(nameof(GrainTemp));
                 OnPropertyChanged(nameof(SpargeVol));
                 OnPropertyChanged(nameof(StrikeWaterVol));
                 OnPropertyChanged(nameof(StrikeTemp));
@@ -69,6 +80,7 @@ namespace BrewersGarage
             set
             {
                 _grainInputs.Ratio = value;
+                OnPropertyChanged(nameof(Ratio));
                 OnPropertyChanged(nameof(SpargeVol));
                 OnPropertyChanged(nameof(StrikeWaterVol));
                 OnPropertyChanged(nameof(StrikeTemp));
@@ -80,6 +92,7 @@ namespace BrewersGarage
             set
             {
                 _grainInputs.BoilVol = value;
+                OnPropertyChanged(nameof(BoilVol));
                 OnPropertyChanged(nameof(SpargeVol));
                 OnPropertyChanged(nameof(StrikeWaterVol));
                 OnPropertyChanged(nameof(StrikeTemp));
