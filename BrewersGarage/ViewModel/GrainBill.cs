@@ -93,7 +93,7 @@ namespace BrewersGarage.ViewModel
                 _grainInputs.BoilVol = value;
                 OnPropertyChanged(nameof(BoilVol));
                 OnPropertyChanged(nameof(SpargeVol));
-                OnPropertyChanged(nameof(StrikeWaterVol));
+                OnPropertyChanged(nameof(StrikeWaterVol)); 
                 OnPropertyChanged(nameof(StrikeTemp));
             }
         }
