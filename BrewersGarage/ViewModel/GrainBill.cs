@@ -1,9 +1,7 @@
-﻿
-using System;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Linq;
 
-namespace BrewersGarage
+namespace BrewersGarage.ViewModel
 {
     public class GrainBill : INotifyPropertyChanged
     {
@@ -18,6 +16,7 @@ namespace BrewersGarage
             {
                 _grainOutputs = Model.Compute.compute(_grainInputs);
             }
+
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
         }
 

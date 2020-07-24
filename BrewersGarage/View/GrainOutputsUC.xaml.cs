@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace BrewersGarage
+namespace BrewersGarage.View
 {
     /// <summary>
-    /// Interaction logic for UserControl1.xaml
+    /// Interaction logic for GrainOutputsUC.xaml
     /// </summary>
-    public partial class UserControl1 : UserControl
+    public partial class GrainOutputsUC : UserControl
     {
-        public UserControl1()
+        public GrainOutputsUC()
         {
             InitializeComponent();
         }

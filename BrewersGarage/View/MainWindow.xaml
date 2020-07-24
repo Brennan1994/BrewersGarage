@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:controls="clr-namespace:BrewersGarage.ViewModel;assembly="
         xmlns:local="clr-namespace:BrewersGarage"
         mc:Ignorable="d" FontSize="12" FontFamily="Segoe UI Light"
         Title="Beer Garage" Height="300" Width="400">
@@ -19,6 +20,7 @@
         <!--INPUT COLUMN-->
         <StackPanel Orientation="Vertical" Grid.Row="3" Grid.Column="0" Margin="20" Grid.RowSpan="1">
             <TextBlock FontSize="16" Text="Inputs" />
+            <CheckBox IsChecked="{Binding Path = SetRatio, Mode=TwoWay}" Grid.Column="0" Grid.Row="0" Content="Set Water to Grist Ratio" Margin="5"/>
             <TextBlock  Text="Grain Weight (lbs)"/>
             <TextBox Text="{Binding Path = GrainWeight, Mode=TwoWay}"/>
             <TextBlock Text="Grain Temp (Degrees F)"/>
@@ -28,9 +30,8 @@
             <TextBlock Text="Boil Volume (gallons)"/>
             <TextBox Text="{Binding Path = BoilVol, Mode=TwoWay}" />
             <TextBlock Text="Water to Grist Ratio (quarts/lb)"/>
-            <TextBox Text="{Binding Path = Ratio, Mode=TwoWay}"/>
+            <TextBox Text="{Binding Path = Ratio, Mode=TwoWay}" IsEnabled="{Binding Path = SetRatio, Mode=TwoWay}"/>
         </StackPanel>
-
         <!--OUTPUT COLUMN-->
         <StackPanel Orientation="Vertical" Grid.Row="3" Grid.Column="2" Margin="20" >
             <TextBlock  FontSize="16" Text="Outputs" />
