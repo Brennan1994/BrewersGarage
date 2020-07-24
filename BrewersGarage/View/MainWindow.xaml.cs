@@ -9,13 +9,9 @@ namespace BrewersGarage.View
 
     public partial class MainWindow : Window
     {
-        public GrainBill GrainBillObj { get; set; }
-
         public MainWindow()
         {
             InitializeComponent();
-            GrainBillObj = new GrainBill();
-            DataContext = GrainBillObj;
         }
     }
 

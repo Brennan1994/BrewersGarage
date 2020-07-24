@@ -2,15 +2,19 @@
 {
     class Compute
     {
-        public static GrainOutput compute(GrainInputs grainInputs)
+        public static GrainOutput Calculate(GrainInputs grainInputs)
         {
 
-            GrainOutput ret = new GrainOutput();
-            ret.StrikeTemp = CalcStrikeTemp(grainInputs);
-            ret.StrikeVol = CalcStrikeVolume(grainInputs);
-            ret.SpargeVol = CalcSpargeWaterVolume(grainInputs);
+            GrainOutput ret = new GrainOutput
+            {
+                StrikeTemp = CalcStrikeTemp(grainInputs),
+                StrikeVol = CalcStrikeVolume(grainInputs),
+                SpargeVol = CalcSpargeWaterVolume(grainInputs)
+            };
             return ret;
         }
+
+
         private static float CalcStrikeTemp(GrainInputs grainInputs)
         {
             //from John Palmer's How to Brew III edition pg 266,268

@@ -4,8 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:controls="clr-namespace:BrewersGarage.View"
+        xmlns:bg="clr-namespace:BrewersGarage.ViewModel"
         mc:Ignorable="d" FontSize="12" FontFamily="Segoe UI Light"
         Title="Beer Garage" Height="300" Width="400">
+    <Window.DataContext>
+        <bg:GrainBill/>
+    </Window.DataContext>
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>

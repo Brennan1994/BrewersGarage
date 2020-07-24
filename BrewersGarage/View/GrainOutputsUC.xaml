@@ -10,11 +10,11 @@
         <StackPanel Orientation="Vertical" Grid.Row="3" Grid.Column="2" Margin="20" >
             <TextBlock  FontSize="16" Text="Outputs" />
             <TextBlock  Text="Strike Water Volume (gal)" />
-            <TextBox  IsEnabled="False" Text="{Binding Path = StrikeWaterVol, Mode=OneWay}" />
+            <TextBox  IsEnabled="False" Text="{Binding Path = GrainOutputs.StrikeWaterVol, Mode=OneWay}" />
             <TextBlock  FontSize="12" Text="Strike Water Temp (degrees F)" />
-            <TextBox  IsEnabled="False" Text="{Binding Path = StrikeTemp, Mode=OneWay}" />
+            <TextBox  IsEnabled="False" Text="{Binding Path = GrainOutputs.StrikeTemp, Mode=OneWay}" />
             <TextBlock  Text="Sparge Water Volume (gal)"/>
-            <TextBox   IsEnabled="False" Text="{Binding Path = SpargeVol, Mode=OneWay}" />
+            <TextBox   IsEnabled="False" Text="{Binding Path = GrainOutputs.SpargeVol, Mode=OneWay}" />
         </StackPanel>
     </Grid>
 </UserControl>

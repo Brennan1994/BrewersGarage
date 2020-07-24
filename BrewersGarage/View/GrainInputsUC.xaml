@@ -10,15 +10,15 @@
         <StackPanel Orientation="Vertical" Grid.Row="3" Grid.Column="0" Margin="20" Grid.RowSpan="1">
             <TextBlock FontSize="16" Text="Inputs" />
             <TextBlock  Text="Grain Weight (lbs)"/>
-            <TextBox Text="{Binding Path = GrainWeight, Mode=TwoWay}"/>
+            <TextBox Text="{Binding Path = GrainInputs.GrainWeight, Mode=TwoWay}"/>
             <TextBlock Text="Water to Grist Ratio (quarts/lb)"/>
-            <TextBox Text="{Binding Path = Ratio, Mode=TwoWay}" IsEnabled="{Binding Path = SetRatio, Mode=TwoWay}"/>
+            <TextBox Text="{Binding Path = GrainInputs.Ratio, Mode=TwoWay}" IsEnabled="{Binding Path = SetRatio, Mode=TwoWay}"/>
             <TextBlock Text="Grain Temp (Degrees F)"/>
-            <TextBox Text="{Binding Path = GrainTemp, Mode=TwoWay}" />
+            <TextBox Text="{Binding Path = GrainInputs.GrainTemp, Mode=TwoWay}" />
             <TextBlock Text="Target Temp (Degrees F)"/>
-            <TextBox Text="{Binding Path = TargetMashTemp, Mode=TwoWay}" />
+            <TextBox Text="{Binding Path = GrainInputs.TargetMashTemp, Mode=TwoWay}" />
             <TextBlock Text="Boil Volume (gallons)"/>
-            <TextBox Text="{Binding Path = BoilVol, Mode=TwoWay}" />
+            <TextBox Text="{Binding Path = GrainInputs.BoilVol, Mode=TwoWay}" />
         </StackPanel>
     </Grid>
 </UserControl>
