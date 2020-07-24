@@ -7,6 +7,14 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-            
+        <StackPanel Orientation="Vertical" Grid.Row="3" Grid.Column="2" Margin="20" >
+            <TextBlock  FontSize="16" Text="Outputs" />
+            <TextBlock  Text="Strike Water Volume (gal)" />
+            <TextBox  IsEnabled="False" Text="{Binding Path = StrikeWaterVol, Mode=OneWay}" />
+            <TextBlock  FontSize="12" Text="Strike Water Temp (degrees F)" />
+            <TextBox  IsEnabled="False" Text="{Binding Path = StrikeTemp, Mode=OneWay}" />
+            <TextBlock  Text="Sparge Water Volume (gal)"/>
+            <TextBox   IsEnabled="False" Text="{Binding Path = SpargeVol, Mode=OneWay}" />
+        </StackPanel>
     </Grid>
 </UserControl>
