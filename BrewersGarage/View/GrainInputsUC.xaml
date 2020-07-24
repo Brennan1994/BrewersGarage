@@ -11,14 +11,14 @@
             <TextBlock FontSize="16" Text="Inputs" />
             <TextBlock  Text="Grain Weight (lbs)"/>
             <TextBox Text="{Binding Path = GrainWeight, Mode=TwoWay}"/>
+            <TextBlock Text="Water to Grist Ratio (quarts/lb)"/>
+            <TextBox Text="{Binding Path = Ratio, Mode=TwoWay}" IsEnabled="{Binding Path = SetRatio, Mode=TwoWay}"/>
             <TextBlock Text="Grain Temp (Degrees F)"/>
             <TextBox Text="{Binding Path = GrainTemp, Mode=TwoWay}" />
             <TextBlock Text="Target Temp (Degrees F)"/>
             <TextBox Text="{Binding Path = TargetMashTemp, Mode=TwoWay}" />
             <TextBlock Text="Boil Volume (gallons)"/>
             <TextBox Text="{Binding Path = BoilVol, Mode=TwoWay}" />
-            <TextBlock Text="Water to Grist Ratio (quarts/lb)"/>
-            <TextBox Text="{Binding Path = Ratio, Mode=TwoWay}" IsEnabled="{Binding Path = SetRatio, Mode=TwoWay}"/>
         </StackPanel>
     </Grid>
 </UserControl>
