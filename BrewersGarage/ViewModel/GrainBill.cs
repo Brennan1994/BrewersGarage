@@ -1,5 +1,4 @@
-﻿using System;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 
 namespace BrewersGarage.ViewModel
 {
@@ -15,7 +14,7 @@ namespace BrewersGarage.ViewModel
 
         private void _grainInputs_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            _grainOutputs.grainOutput = Model.Compute.Compute(((ViewModel.GrainInputsVM)sender).GrainInputs);
+            _grainOutputs.grainOutput = Model.Compute.Calculate(((ViewModel.GrainInputsVM)sender).GrainInputs);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

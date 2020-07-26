@@ -1,5 +1,4 @@
 ﻿using BrewersGarage.Model;
-using System;
 using System.ComponentModel;
 
 namespace BrewersGarage.ViewModel
@@ -12,9 +11,8 @@ namespace BrewersGarage.ViewModel
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
         }
 
-        
 
-        private Model.GrainInputs _grainInputs = new Model.GrainInputs();
+        private GrainInputs _grainInputs = new Model.GrainInputs();
         public float GrainWeight
         {
             get { return _grainInputs.GrainWeight; }

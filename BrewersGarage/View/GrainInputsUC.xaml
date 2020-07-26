@@ -12,7 +12,7 @@
             <TextBlock  Text="Grain Weight (lbs)"/>
             <TextBox Text="{Binding Path = GrainInputs.GrainWeight, Mode=TwoWay}"/>
             <TextBlock Text="Water to Grist Ratio (quarts/lb)"/>
-            <TextBox Text="{Binding Path = GrainInputs.Ratio, Mode=TwoWay}" IsEnabled="{Binding Path = SetRatio, Mode=TwoWay}"/>
+            <TextBox Text="{Binding Path = GrainInputs.Ratio, Mode=TwoWay}"/>
             <TextBlock Text="Grain Temp (Degrees F)"/>
             <TextBox Text="{Binding Path = GrainInputs.GrainTemp, Mode=TwoWay}" />
             <TextBlock Text="Target Temp (Degrees F)"/>
