@@ -24,5 +24,11 @@ namespace BrewersGarage.View
         {
             InitializeComponent();
         }
+        private void SelectText(object sender, RoutedEventArgs e)
+        {
+            TextBox tb = (sender as TextBox);
+            if (tb != null)
+            {tb.SelectAll();}
+        }
     }
 }

@@ -14,7 +14,7 @@ namespace BrewersGarage.ViewModel
 
         private void _grainInputs_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            _grainOutputs.grainOutput = Model.Compute.Calculate(((ViewModel.GrainInputsVM)sender).GrainInputs);
+            _grainOutputs.GrainOutput = Model.Compute.Calculate(((ViewModel.GrainInputsVM)sender).GrainInputs);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

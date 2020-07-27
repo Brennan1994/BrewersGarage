@@ -23,7 +23,7 @@ namespace BrewersGarage.ViewModel
         {
             get { return _grainOutputs.SpargeVol; }
         }
-        public Model.GrainOutput grainOutput
+        public Model.GrainOutput GrainOutput
         {
             set { _grainOutputs = value;
                 OnPropertyChanged(nameof(StrikeWaterVol));
