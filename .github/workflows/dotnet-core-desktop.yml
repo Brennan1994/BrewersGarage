@@ -85,11 +85,11 @@ jobs:
       
     # Create the app package by building and packaging the project
     - name: Create the app package
-      run: msbuild $env:Wap_Project_Path /p:Configuration=$env:Configuration /p:UapAppxPackageBuildMode=$env:Appx_Package_Build_Mode /p:AppxBundle=$env:Appx_Bundle 
+      run: msbuild $env:Wap_Project_Path /p:Configuration=$env:Configuration /t:Build #/p:UapAppxPackageBuildMode=$env:Appx_Package_Build_Mode /p:AppxBundle=$env:Appx_Bundle 
       env:
-        Appx_Bundle: Always
-        Appx_Bundle_Platforms: x86|x64
-        Appx_Package_Build_Mode: StoreUpload
+        #Appx_Bundle: Always
+        #Appx_Bundle_Platforms: x86|x64
+        #Appx_Package_Build_Mode: StoreUpload
         Configuration: ${{ matrix.configuration }}
 
     # Upload the MSIX package: https://github.com/marketplace/actions/upload-artifact
@@ -97,4 +97,4 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: BrewersGarage
-        path: D:\a\BrewersGarage\BrewersGarage\BrewersGarage\bin\$env:Configuration
+        path: D:\a\BrewersGarage\BrewersGarage\BrewersGarage\bin\${{ matrix.configuration }}
