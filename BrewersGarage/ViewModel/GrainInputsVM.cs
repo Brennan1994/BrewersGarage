@@ -9,26 +9,41 @@ namespace BrewersGarage.ViewModel
 {
     public class GrainInputsVM : INotifyPropertyChanged, INotifyDataErrorInfo
     {
+        //EVENTS
+        //Property Changed fires whenever a property changes.
         public event PropertyChangedEventHandler PropertyChanged;
-        public event EventHandler<DataErrorsChangedEventArgs> ErrorsChanged;//
+        public event EventHandler<DataErrorsChangedEventArgs> ErrorsChanged;
 
+        //VARIABLES
+        private List<string> _errors = new List<string>();
+        private GrainInputs _grainInputs = new Model.GrainInputs();
+
+        //METHODS
         private void OnPropertyChanged(string property)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
         }
 
-        public IEnumerable GetErrors(string propertyName)//
+        public IEnumerable GetErrors(string propertyName)
         {
-            if (propertyName.Equals(nameof(GrainTemp)))
-            {
-                return _errors;
-            }
-            return null;
+            return _errors;
         }
 
-        private List<string> _errors = new List<string>();
-
-        private GrainInputs _grainInputs = new Model.GrainInputs();
+        //PROPERTIES
+        public bool HasErrors
+        {
+            get
+            {
+                return _errors.Count != 0;
+            }
+        }
+        internal GrainInputs GrainInputs
+        {
+            get
+            {
+                return _grainInputs;
+            }
+        }
         public float GrainWeight
         {
             get { return _grainInputs.GrainWeight; }
@@ -57,12 +72,12 @@ namespace BrewersGarage.ViewModel
                 _grainInputs.GrainTemp = value;
                 if (_grainInputs.GrainTemp > 120)
                 {
-                    _errors.Add("That's Pretty High. Are you sure that's right?");
+                    _errors.Add("That's pretty high. Are you sure that's right?");
                     
                 }
                 else if (_grainInputs.GrainTemp < 0)
                 {
-                    _errors.Add("Grain too cold");
+                    _errors.Add("That's p");
                 }
                 OnPropertyChanged(nameof(GrainTemp));
             }
@@ -86,21 +101,8 @@ namespace BrewersGarage.ViewModel
             }
         }
 
-        internal GrainInputs GrainInputs
-        {
-            get
-            {
-                return _grainInputs;
-            }
-        }
 
-        public bool HasErrors
-        {
-            get
-            {
-                return _errors.Count != 0;
-            }
-        }
+
 
     }
 }
