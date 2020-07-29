@@ -97,4 +97,4 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: BrewersGarage
-        path: ${{ env.Wap_Project_Directory }}\AppPackages
+        path: ${{ env.Wap_Project_Directory }}\bin\Release

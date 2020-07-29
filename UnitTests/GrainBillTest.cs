@@ -1,13 +1,15 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+//using Microsoft.VisualStudio.TestTools.UnitTesting;
+//using BrewersGarage.Model;
+//namespace UnitTests
+//{
+//    [TestClass]
+//    public class GrainBillTest
+//    {
+//        private GrainInputs _grainInputs = new Model.GrainInputs();
 
-namespace UnitTests
-{
-    [TestClass]
-    public class GrainBillTest
-    {
-        [TestMethod]
-        public void TestMethod1()
-        {
-        }
-    }
-}
+//        [TestMethod]
+//        public void TestMethod1()
+//        {
+//        }
+//    }
+//}

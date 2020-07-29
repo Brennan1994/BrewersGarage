@@ -1,16 +1,32 @@
 ﻿using BrewersGarage.Model;
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Windows.Documents;
 
 namespace BrewersGarage.ViewModel
 {
-    public class GrainInputsVM : INotifyPropertyChanged
+    public class GrainInputsVM : INotifyPropertyChanged, INotifyDataErrorInfo
     {
         public event PropertyChangedEventHandler PropertyChanged;
+        public event EventHandler<DataErrorsChangedEventArgs> ErrorsChanged;//
+
         private void OnPropertyChanged(string property)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
         }
 
+        public IEnumerable GetErrors(string propertyName)//
+        {
+            if (propertyName.Equals(nameof(GrainTemp)))
+            {
+                return _errors;
+            }
+            return null;
+        }
+
+        private List<string> _errors = new List<string>();
 
         private GrainInputs _grainInputs = new Model.GrainInputs();
         public float GrainWeight
@@ -36,7 +52,18 @@ namespace BrewersGarage.ViewModel
             get { return _grainInputs.GrainTemp; }
             set
             {
+                _errors = new List<string>();
+
                 _grainInputs.GrainTemp = value;
+                if (_grainInputs.GrainTemp > 120)
+                {
+                    _errors.Add("That's Pretty High. Are you sure that's right?");
+                    
+                }
+                else if (_grainInputs.GrainTemp < 0)
+                {
+                    _errors.Add("Grain too cold");
+                }
                 OnPropertyChanged(nameof(GrainTemp));
             }
         }
@@ -66,5 +93,14 @@ namespace BrewersGarage.ViewModel
                 return _grainInputs;
             }
         }
+
+        public bool HasErrors
+        {
+            get
+            {
+                return _errors.Count != 0;
+            }
+        }
+
     }
 }

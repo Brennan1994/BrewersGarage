@@ -4,6 +4,19 @@
              xmlns:local="clr-namespace:BrewersGarage"
              StartupUri="/View/MainWindow.xaml">
     <Application.Resources>
-         
+        <Style TargetType="Control" x:Key="defaultErrorTemplate">
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="True">
+                    <Setter Property="ToolTip">
+                        <Setter.Value>
+                            <ToolTip DataContext="{Binding RelativeSource={RelativeSource Self}, Path=PlacementTarget}">
+                                <ItemsControl ItemsSource="{Binding Path=(Validation.Errors)}" DisplayMemberPath="ErrorContent" />
+                            </ToolTip>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="TextBox" BasedOn="{StaticResource defaultErrorTemplate}"/>
     </Application.Resources>
 </Application>
