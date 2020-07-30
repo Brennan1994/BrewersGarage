@@ -80,7 +80,7 @@ jobs:
     - name: Restore the application
       run: msbuild $env:Solution_Name /t:Restore /p:Configuration=$env:Configuration
       env:
-        Configuration: ${{ matrix.configuration }}
+        Configuration: ${{ matrix.configuration }} 
       
     # Create the app package by building and packaging the project
     - name: Create the app package
@@ -94,6 +94,10 @@ jobs:
       with:
         name: BrewersGarage
         path: D:\a\BrewersGarage\BrewersGarage\BrewersGarage\bin\Release
+
+    # Zips the Binaries and saves them 
+    - name: zip
+      runs: Compress-Archive -Path D:\a\BrewersGarage\BrewersGarage\BrewersGarage\bin\Release\*.* -DestinationPath D:\a\BrewersGarage\BrewersGarage\BrewersGarage\bin\BrewersGarageAlpha.zip
 
     # Creates a release on GitHub 
     - name: Create Release
@@ -117,6 +121,6 @@ jobs:
       with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-          asset_path: ./BrewersGarage.zip
-          asset_name: BrewersGarage.zip
+          asset_path: D:\a\BrewersGarage\BrewersGarage\BrewersGarage\bin\BrewersGarageAlpha.zip
+          asset_name: BrewersGarageAlpha.zip
           asset_content_type: application/zip
