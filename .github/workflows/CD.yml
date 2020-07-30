@@ -40,13 +40,13 @@ name: .NET Core Desktop
 
 on:
   push:
-    branches: [ master ]
+    branches: [ Deployment ]
 
 jobs:
   build:
     strategy:
       matrix:
-        configuration: [Debug, Release]
+        configuration: [Release]
 
     runs-on: windows-latest
 
@@ -100,12 +100,12 @@ jobs:
       run: Compress-Archive -Path D:\a\BrewersGarage\BrewersGarage\BrewersGarage\bin\Release\*.* -DestinationPath D:\a\BrewersGarage\BrewersGarage\BrewersGarage\bin\BrewersGarageAlpha.zip
 
     # Creates a release on GitHub 
-   - name: Create Release
-     id: create_release
-     uses: actions/create-release@v1
-     env:
-       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
-     with:
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+      with:
         tag_name: Latest
         release_name: BrewersGarage Alpha 
         body: Development Release

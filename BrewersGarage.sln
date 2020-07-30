@@ -9,7 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTests", "UnitTests\Unit
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BFD35A08-27AA-45E9-9816-1B96C578F65D}"
 	ProjectSection(SolutionItems) = preProject
-		.github\workflows\dotnet-core-desktop.yml = .github\workflows\dotnet-core-desktop.yml
+		.github\workflows\CD.yml = .github\workflows\CD.yml
+		.github\workflows\CI.yml = .github\workflows\CI.yml
 	EndProjectSection
 EndProject
 Global

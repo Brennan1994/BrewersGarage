@@ -1,0 +1,51 @@
+name: .NET Core Desktop
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        configuration: [Debug]
+
+    runs-on: windows-latest
+
+    env:
+      Solution_Name: BrewersGarage.sln                              # Replace with your solution name, i.e. MyWpfApp.sln.
+      Test_Project_Path: BrewersGarage\UnitTests                    # Replace with the path to your test project, i.e. MyWpfApp.Tests\MyWpfApp.Tests.csproj.
+      Wap_Project_Directory: BrewersGarage                          # Replace with the Wap project directory relative to the solution, i.e. MyWpfApp.Package.
+      Wap_Project_Path: BrewersGarage\BrewersGarage.csproj          # Replace with the path to your Wap project, i.e. MyWpf.App.Package\MyWpfApp.Package.wapproj.
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
+    # Install the .NET Core workload
+    - name: Install .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.101
+
+    # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
+    - name: Setup MSBuild.exe
+      uses: microsoft/setup-msbuild@2008f912f56e61277eefaac6d1888b750582aa16
+
+    # Execute Tests
+    - name: Execute unit tests
+      run: dotnet test
+
+    # Restore Packages
+    - name: Restore Packages
+      run: msbuild $env:Solution_Name /t:Restore /p:Configuration=$env:Configuration
+      env:
+        Configuration: ${{ matrix.configuration }} 
+      
+    # Build
+    - name: Build
+      run: msbuild $env:Wap_Project_Path /p:Configuration=$env:Configuration /t:Build 
+      env:
+        Configuration: ${{ matrix.configuration }}
