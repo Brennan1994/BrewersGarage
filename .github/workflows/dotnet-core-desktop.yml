@@ -97,7 +97,7 @@ jobs:
 
     # Zips the Binaries and saves them 
     - name: zip
-      runs: Compress-Archive -Path D:\a\BrewersGarage\BrewersGarage\BrewersGarage\bin\Release\*.* -DestinationPath D:\a\BrewersGarage\BrewersGarage\BrewersGarage\bin\BrewersGarageAlpha.zip
+      run: Compress-Archive -Path D:\a\BrewersGarage\BrewersGarage\BrewersGarage\bin\Release\*.* -DestinationPath D:\a\BrewersGarage\BrewersGarage\BrewersGarage\bin\BrewersGarageAlpha.zip
 
     # Creates a release on GitHub 
     - name: Create Release
