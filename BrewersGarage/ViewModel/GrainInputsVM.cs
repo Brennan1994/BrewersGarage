@@ -7,7 +7,7 @@ using System.Windows.Documents;
 
 namespace BrewersGarage.ViewModel
 {
-    public class GrainInputsVM : INotifyPropertyChanged, INotifyDataErrorInfo
+    public class GrainInputsVM : INotifyPropertyChanged
     {
         //EVENTS
         //Property Changed fires whenever a property changes.
@@ -16,7 +16,7 @@ namespace BrewersGarage.ViewModel
 
         //VARIABLES
         private List<string> _errors = new List<string>();
-        private GrainInputs _grainInputs = new Model.GrainInputs();
+        private GrainInputs _grainInputs = new GrainInputs();
 
         //METHODS
         private void OnPropertyChanged(string property)
@@ -24,19 +24,7 @@ namespace BrewersGarage.ViewModel
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
         }
 
-        public IEnumerable GetErrors(string propertyName)
-        {
-            return _errors;
-        }
-
         //PROPERTIES
-        public bool HasErrors
-        {
-            get
-            {
-                return _errors.Count != 0;
-            }
-        }
         internal GrainInputs GrainInputs
         {
             get
@@ -67,19 +55,7 @@ namespace BrewersGarage.ViewModel
             get { return _grainInputs.GrainTemp; }
             set
             {
-                _errors = new List<string>();
-
                 _grainInputs.GrainTemp = value;
-                if (_grainInputs.GrainTemp > 120)
-                {
-                    _errors.Add("That's pretty high. Are you sure that's right?");
-                    
-                }
-                else if (_grainInputs.GrainTemp < 0)
-                {
-                    _errors.Add("That's p");
-                }
-                OnPropertyChanged(nameof(GrainTemp));
             }
         }
         public float Ratio
@@ -87,6 +63,7 @@ namespace BrewersGarage.ViewModel
             get { return _grainInputs.Ratio; }
             set
             {
+                _errors = new List<string>();
                 _grainInputs.Ratio = value;
                 OnPropertyChanged(nameof(Ratio));
             }

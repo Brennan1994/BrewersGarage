@@ -1,6 +1,6 @@
 ﻿namespace BrewersGarage.Model
 {
-    class GrainInputs
+    public class GrainInputs
     {
         //Input Properties
         private float _grainWeight=0;
