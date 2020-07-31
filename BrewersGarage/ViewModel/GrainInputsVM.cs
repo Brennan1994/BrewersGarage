@@ -25,7 +25,7 @@ namespace BrewersGarage.ViewModel
         }
 
         //PROPERTIES
-        internal GrainInputs GrainInputs
+        public GrainInputs GrainInputs
         {
             get
             {

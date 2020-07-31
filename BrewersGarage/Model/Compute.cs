@@ -1,6 +1,6 @@
 ﻿namespace BrewersGarage.Model
 {
-    class Compute
+    public class Compute
     {
         public static GrainOutput Calculate(GrainInputs grainInputs)
         {
@@ -15,7 +15,7 @@
         }
 
 
-        private static float CalcStrikeTemp(GrainInputs grainInputs)
+        public static float CalcStrikeTemp(GrainInputs grainInputs)
         {
             //from John Palmer's How to Brew III edition pg 266,268
             float roe = 2.055F; // This value is the average density of water across the reasonable range of mash temperatures in lb/qt
