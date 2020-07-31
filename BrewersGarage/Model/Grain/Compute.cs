@@ -25,28 +25,27 @@
             float strikeT = ((s / R) * (grainInputs.TargetMashTemp - grainInputs.GrainTemp) + grainInputs.TargetMashTemp);
             return strikeT;
         }
-        private static float CalcRetainedWater(GrainInputs grainInputs)
+        public static float CalcRetainedWater(GrainInputs grainInputs)
         {
             float r = 0.5F; // This is the wet retention factor for grist in quarts per pound.
             float retainedVol = r * grainInputs.GrainWeight / 4;
             return retainedVol;
         }
-        private static float CalcStrikeVolume(GrainInputs grainInputs)
+        public static float CalcStrikeVolume(GrainInputs grainInputs)
         {
             float vol = (grainInputs.GrainWeight * grainInputs.Ratio) / 4;
             return vol;
         }
-        private static float CalcSpargeWaterVolume(GrainInputs grainInputs)
+        public static float CalcSpargeWaterVolume(GrainInputs grainInputs)
         {
             // This method does not use .5 * boil volume just in case the user opts out of the equal runnings goal.
-            float spargeVol = grainInputs.BoilVol - CalcStrikeVolume(grainInputs) - CalcRetainedWater(grainInputs);
+            float spargeVol = grainInputs.BoilVol - CalcStrikeVolume(grainInputs) + CalcRetainedWater(grainInputs);
             return spargeVol;
         }
-        float CalcRatioForBatchSparge(GrainInputs grainInputs)
+        public static float CalcRatioForBatchSparge(GrainInputs grainInputs)
         {
             float ratio = ((grainInputs.BoilVol * 4 / 2) + CalcRetainedWater(grainInputs)) / grainInputs.GrainWeight;
             return ratio;
         }
     }
 }
-///
