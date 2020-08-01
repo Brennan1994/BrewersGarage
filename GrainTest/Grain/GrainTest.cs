@@ -1,5 +1,4 @@
-﻿using System;
-using BrewersGarage.ViewModel;
+﻿using BrewersGarage.ViewModel;
 using BrewersGarage.Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
