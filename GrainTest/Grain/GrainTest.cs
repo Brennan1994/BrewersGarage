@@ -16,7 +16,7 @@ namespace GrainTest
         [TestMethod]
         public void TestGrainBillOutputAccuracy()
         {
-            _grainOutputs.GrainOutput = Compute.Calculate(_grainInputs.GrainInputs);
+            _grainOutputs.GrainOutput = GrainCompute.Calculate(_grainInputs.GrainInputs);
             Assert.AreEqual(167.159772911598, _grainOutputs.StrikeTemp);
             Assert.AreEqual(4.125, _grainOutputs.StrikeWaterVol);
             Assert.AreEqual(5.25, _grainOutputs.SpargeVol);
@@ -24,7 +24,7 @@ namespace GrainTest
 
         public void TestIntermediateMethods()
         {
-            Assert.AreEqual(null, Compute.CalcStrikeTemp(_grainInputs.GrainInputs));
+            Assert.AreEqual(null, GrainCompute.CalcStrikeTemp(_grainInputs.GrainInputs));
         }
 
     }

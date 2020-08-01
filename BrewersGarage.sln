@@ -11,7 +11,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.github\workflows\CI.yml = .github\workflows\CI.yml
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrewersGarageUnitTest", "GrainTest\BrewersGarageUnitTest.csproj", "{225E5A9D-FF97-4B10-8F94-263148E344F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrewersGarageUnitTest", "GrainTest\BrewersGarageUnitTest.csproj", "{225E5A9D-FF97-4B10-8F94-263148E344F0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Website", "Website", "{83200F50-F54A-4A6F-88D8-F9C2D73E3458}"
+	ProjectSection(SolutionItems) = preProject
+		docs\_config.yml = docs\_config.yml
+		docs\index.html = docs\index.html
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Git", "Git", "{08A3C7ED-4F57-4B9E-AE0C-07C8357936D9}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -70,6 +82,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{83200F50-F54A-4A6F-88D8-F9C2D73E3458} = {BFD35A08-27AA-45E9-9816-1B96C578F65D}
+		{08A3C7ED-4F57-4B9E-AE0C-07C8357936D9} = {BFD35A08-27AA-45E9-9816-1B96C578F65D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B2596207-A6E4-453B-A3AB-7AF963099233}

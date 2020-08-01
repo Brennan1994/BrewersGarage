@@ -3,25 +3,28 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Windows.Documents;
 
 namespace BrewersGarage.ViewModel
 {
-    public class GrainInputsVM : INotifyPropertyChanged
+    public class GrainInputsVM : INotifyPropertyChanged 
     {
         //EVENTS
         //Property Changed fires whenever a property changes.
         public event PropertyChangedEventHandler PropertyChanged;
-        public event EventHandler<DataErrorsChangedEventArgs> ErrorsChanged;
+
 
         //VARIABLES
-        private List<string> _errors = new List<string>();
         private GrainInputs _grainInputs = new GrainInputs();
 
         //METHODS
         private void OnPropertyChanged(string property)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
+        }
+
+        public IEnumerable GetErrors(string propertyName)
+        {
+            throw new NotImplementedException();
         }
 
         //PROPERTIES
@@ -63,7 +66,6 @@ namespace BrewersGarage.ViewModel
             get { return _grainInputs.Ratio; }
             set
             {
-                _errors = new List<string>();
                 _grainInputs.Ratio = value;
                 OnPropertyChanged(nameof(Ratio));
             }
@@ -77,9 +79,5 @@ namespace BrewersGarage.ViewModel
                 OnPropertyChanged(nameof(BoilVol));
             }
         }
-
-
-
-
     }
 }

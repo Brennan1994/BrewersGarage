@@ -37,4 +37,8 @@
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ViewModel\Hops\" />
+    <Folder Include="View\Hops\" />
+  </ItemGroup>
 </Project>

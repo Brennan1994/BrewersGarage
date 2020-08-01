@@ -1,6 +1,6 @@
 ﻿namespace BrewersGarage.Model
 {
-    public class Compute
+    public class GrainCompute
     {
         public static GrainOutput Calculate(GrainInputs grainInputs)
         {
