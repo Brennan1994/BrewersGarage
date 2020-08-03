@@ -9,7 +9,7 @@ namespace BrewersGarage.ViewModel
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
         }
 
-        private Model.GrainOutput _grainOutputs = new Model.GrainOutput();
+        private Model.MashOutput _grainOutputs = new Model.MashOutput();
         //Output Properties
         public float StrikeWaterVol
         {
@@ -23,7 +23,7 @@ namespace BrewersGarage.ViewModel
         {
             get { return _grainOutputs.SpargeVol; }
         }
-        public Model.GrainOutput GrainOutput
+        public Model.MashOutput GrainOutput
         {
             set { _grainOutputs = value;
                 OnPropertyChanged(nameof(StrikeWaterVol));

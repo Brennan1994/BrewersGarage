@@ -6,10 +6,6 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrewersGarage", "BrewersGarage\BrewersGarage.csproj", "{62E8A061-8490-42BF-971B-7CD76ED5F65D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BFD35A08-27AA-45E9-9816-1B96C578F65D}"
-	ProjectSection(SolutionItems) = preProject
-		.github\workflows\CD.yml = .github\workflows\CD.yml
-		.github\workflows\CI.yml = .github\workflows\CI.yml
-	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrewersGarageUnitTest", "GrainTest\BrewersGarageUnitTest.csproj", "{225E5A9D-FF97-4B10-8F94-263148E344F0}"
 EndProject
@@ -22,6 +18,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Git", "Git", "{08A3C7ED-4F57-4B9E-AE0C-07C8357936D9}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
+		.github\workflows\CD.yml = .github\workflows\CD.yml
+		.github\workflows\CI.yml = .github\workflows\CI.yml
 		README.md = README.md
 	EndProjectSection
 EndProject

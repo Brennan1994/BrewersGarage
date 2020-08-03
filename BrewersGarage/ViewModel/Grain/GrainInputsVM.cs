@@ -14,7 +14,7 @@ namespace BrewersGarage.ViewModel
 
 
         //VARIABLES
-        private GrainInputs _grainInputs = new GrainInputs();
+        private MashInputs _grainInputs = new MashInputs();
 
         //METHODS
         private void OnPropertyChanged(string property)
@@ -28,7 +28,7 @@ namespace BrewersGarage.ViewModel
         }
 
         //PROPERTIES
-        public GrainInputs GrainInputs
+        public MashInputs GrainInputs
         {
             get
             {
